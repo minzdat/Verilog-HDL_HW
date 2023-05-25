@@ -39,7 +39,6 @@ module GameController(
 	Control_Led7seg Control_LedB (.Btn(c2),.CLR(clear),.Led(LedB));
 endmodule
 
-
 module ButtonEnable(
 	input wire En1,En0,
 	output wire Q0,Q1
