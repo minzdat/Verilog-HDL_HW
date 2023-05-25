@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -6,10 +7,19 @@
 // Create Date:    15:25:58 04/20/2023 
 // Design Name:    TruongMinhDat 
 // Module Name:    GameController
-// Project Name: 	 VerilogHDL Homework	
+// Project Name:   VerilogHDL Homework	
 // Target Devices: 
 // Tool versions: 
-// Description: 
+// Description:    
+/*	
+	Thiet ke he thong dieu khien tro choi nhu sau: He thong co 3 nut nhan (BtnA, BtnB, Clear, 
+	tich cuc muc thap), 2 led 7 đoạn anode chung (dat ten LedA, LedB). 
+	- Khi moi cap nguon, he thong hien thi 0 và 0 o LedA va LedB 
+	- Neu nhan BtnA thi LedA tang len 1 don vi, trong thoi gian BtnA con o muc thap thi BtnB 
+	khong co tac dung 
+	- Nguoc lai nhan BtnB thi LedB tang len 1 don vi, trong thoi gian BtnB con o muc thap thi 
+	BtnA khong co tac dung		
+*/
 //
 // Dependencies: 
 //
@@ -19,15 +29,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module GameController
-(
+module GameController(
 	input wire BtnA, BtnB, clear,
 	output wire[6:0] LedA,LedB 
-    );
-		wire c1, c2;
-		ButtonEnable ButtonEn (.En1(BtnA),.En0(BtnB),.Q0(c1),.Q1(c2));
-		Control_Led7seg Control_LedA (.Btn(c1),.CLR(clear),.Led(LedA));		
-		Control_Led7seg Control_LedB (.Btn(c2),.CLR(clear),.Led(LedB));
+    	);
+	wire c1, c2;
+	ButtonEnable ButtonEn (.En1(BtnA),.En0(BtnB),.Q0(c1),.Q1(c2));
+	Control_Led7seg Control_LedA (.Btn(c1),.CLR(clear),.Led(LedA));		
+	Control_Led7seg Control_LedB (.Btn(c2),.CLR(clear),.Led(LedB));
 endmodule
 
 
@@ -42,7 +51,7 @@ endmodule
 module Control_Led7seg(
 	input Btn, CLR, // CLR tuong ung khi nhan nut clear
 	output reg[6:0] Led
-    );
+   	);
 	 // Ngo vao tich cuc thap
 	 // Led 7 doan anode chung, 0 sang 1 tat
 	 // MS bit xxxxxxx tuong ung voi g f e d c b a
