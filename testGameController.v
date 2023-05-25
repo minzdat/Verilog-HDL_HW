@@ -6,12 +6,14 @@
 // 
 // Create Date:    15:25:58 04/20/2023 
 // Design Name:    TruongMinhDat 
-// Module Name:    GameController
-// Project Name: 	 VerilogHDL Homework	
+// Module Name:    testband
+// Project Name:   VerilogHDL Homework	
 // Target Devices: 
 // Tool versions: 
 // Description: 
-//
+/* 
+	Kiem tra cac truong hop cua module GameController
+*/
 // Dependencies: 
 //
 // Revision: 
@@ -224,7 +226,5 @@ module testband;
 				
 		// Add stimulus here
 
-	end
-      
+	end      
 endmodule
-
